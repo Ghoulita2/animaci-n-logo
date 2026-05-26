@@ -1,0 +1,44 @@
+/* Paleta de colores estricta */
+:root {
+  --bg-color: #0a0a0a;      /* Fondo (Ej: Dark mood) */
+  --accent-color: #d4af37;  /* Color del trazo de la casa (Ej: Dorado) */
+  --text-color: #ffffff;    /* Color de las letras */
+}
+
+.logo-container {
+  background-color: var(--bg-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+/* 1. Animación de construcción de la casa */
+.house-path {
+  /* El valor de 400 depende de la longitud total del 'path' de tu SVG real */
+  stroke-dasharray: 400; 
+  stroke-dashoffset: 400;
+  animation: buildHouse 1.5s ease-in-out forwards;
+}
+
+@keyframes buildHouse {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* 2. Animación de caída de las letras */
+.letter {
+  opacity: 0;
+  transform: translateY(-30px); /* Inician 30px arriba */
+  animation: dropLetter 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+  animation-delay: var(--delay); /* Toma el retraso definido en el HTML */
+}
+
+@keyframes dropLetter {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
