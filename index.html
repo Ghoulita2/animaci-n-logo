@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo FABRI-K - Animación Corregida</title>
+    <title>Logo FABRI-K - Precisión Total</title>
     <style>
+        /* Definición estricta de la paleta de colores */
         :root {
-            --bg-color: #ffffff; 
-            --brand-color: #a0522d; 
+            --bg-color: #ffffff; /* Fondo blanco */
+            --brand-color: #a0522d; /* El tono marrón de FABRI-K */
         }
 
         body {
@@ -18,22 +19,30 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
+            font-family: sans-serif;
         }
 
+        /* 1. Animación de caída de las letras */
         .letter {
             opacity: 0;
             transform: translateY(-60px);
             animation: dropLetter 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             animation-delay: var(--delay);
-            font-family: 'Arial Black', sans-serif;
+            /* Tipografía geométrica pesada aproximada */
+            font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
             font-weight: 900;
             font-size: 85px;
+            text-transform: uppercase;
         }
 
         @keyframes dropLetter {
-            to { opacity: 1; transform: translateY(0); }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
         }
 
+        /* 2. Animación de dibujo de la cabaña (Líneas secuenciales) */
         .house-path {
             stroke-dasharray: var(--path-length);
             stroke-dashoffset: var(--path-length);
@@ -41,59 +50,79 @@
             animation-delay: var(--delay);
             stroke-linecap: round;
             stroke-linejoin: round;
+            stroke-width: 2; /* Ancho de línea base */
         }
 
         @keyframes buildHouse {
-            to { stroke-dashoffset: 0; }
+            to {
+                stroke-dashoffset: 0;
+            }
         }
     </style>
 </head>
 <body>
 
-    <svg viewBox="0 0 600 200" width="100%" max-width="700px">
+    <svg viewBox="0 0 700 250" width="100%" max-width="800px">
         
         <defs>
-            <clipPath id="corte-triangulo">
-                <path d="M 45 0 L 0 85 L 90 85 Z" />
+            <clipPath id="texture-mask">
+                <path d="M 50 0 L 0 95 L 100 95 Z" />
+                
+                <rect x="37" y="60" width="26" height="35" fill="white" />
+                <rect x="42" y="30" width="16" height="16" fill="white" />
+                <rect x="15" y="60" width="14" height="14" fill="white" />
+                <rect x="71" y="60" width="14" height="14" fill="white" />
             </clipPath>
         </defs>
 
         <g fill="var(--brand-color)">
-            <text x="35" y="140" class="letter" style="--delay: 0.0s">F</text>
-            <text x="215" y="140" class="letter" style="--delay: 0.4s">B</text>
-            <text x="290" y="140" class="letter" style="--delay: 0.6s">R</text>
-            <text x="355" y="140" class="letter" style="--delay: 0.8s">I</text>
-            <text x="390" y="140" class="letter" style="--delay: 1.0s">-</text>
-            <text x="435" y="140" class="letter" style="--delay: 1.2s">K</text>
+            <text x="35" y="170" class="letter" style="--delay: 0.0s">F</text>
+            <text x="260" y="170" class="letter" style="--delay: 0.4s">B</text>
+            <text x="340" y="170" class="letter" style="--delay: 0.6s">R</text>
+            <text x="410" y="170" class="letter" style="--delay: 0.8s">I</text>
+            <text x="450" y="170" class="letter" style="--delay: 1.0s">-</text>
+            <text x="500" y="170" class="letter" style="--delay: 1.2s">K</text>
         </g>
         
-        <g transform="translate(110, 50)" fill="transparent" stroke="var(--brand-color)">
+        <g transform="translate(130, 75)" fill="transparent" stroke="var(--brand-color)">
             
-            <path d="M 45 0 L 0 85 L 90 85 Z" class="house-path" style="--path-length: 300; --delay: 1.5s; stroke-width: 6;"/>
-            
-            <g clip-path="url(#corte-triangulo)">
-                <line x1="-10" y1="20" x2="100" y2="20" class="house-path" style="--path-length: 120; --delay: 2.0s; stroke-width: 2;"/>
-                <line x1="-10" y1="35" x2="100" y2="35" class="house-path" style="--path-length: 120; --delay: 2.1s; stroke-width: 2;"/>
-                <line x1="-10" y1="50" x2="100" y2="50" class="house-path" style="--path-length: 120; --delay: 2.2s; stroke-width: 2;"/>
-                <line x1="-10" y1="65" x2="100" y2="65" class="house-path" style="--path-length: 120; --delay: 2.3s; stroke-width: 2;"/>
-                <line x1="-10" y1="80" x2="100" y2="80" class="house-path" style="--path-length: 120; --delay: 2.4s; stroke-width: 2;"/>
+            <path d="M 50 0 L 0 95 L 100 95 Z" class="house-path" style="--path-length: 340; --delay: 1.5s; stroke-width: 6;"/>
+            <rect x="0" y="95" width="100" height="7" class="house-path" style="--path-length: 220; --delay: 1.8s; stroke-width: 4; fill: var(--brand-color);"/>
+
+            <g clip-path="url(#texture-mask)">
+                <line x1="-10" y1="20" x2="110" y2="20" class="house-path" style="--path-length: 120; --delay: 2.1s; stroke-width: 2;"/>
+                <line x1="-10" y1="35" x2="110" y2="35" class="house-path" style="--path-length: 120; --delay: 2.2s; stroke-width: 2;"/>
+                <line x1="-10" y1="50" x2="110" y2="50" class="house-path" style="--path-length: 120; --delay: 2.3s; stroke-width: 2;"/>
+                <line x1="-10" y1="65" x2="110" y2="65" class="house-path" style="--path-length: 120; --delay: 2.4s; stroke-width: 2;"/>
+                <line x1="-10" y1="80" x2="110" y2="80" class="house-path" style="--path-length: 120; --delay: 2.5s; stroke-width: 2;"/>
             </g>
             
-            <path d="M 35 85 L 35 55 L 55 55 L 55 85" class="house-path" style="--path-length: 100; --delay: 2.6s; stroke-width: 3;"/>
-            <path d="M 43 70 L 47 70 L 45 66 Z" class="house-path" style="--path-length: 15; --delay: 2.8s; stroke-width: 2;"/>
+            <path d="M 37 95 L 37 60 L 63 60 L 63 95" class="house-path" style="--path-length: 130; --delay: 2.7s; stroke-width: 3;"/>
+            <path d="M 48 80 L 52 80 L 50 76 Z" class="house-path" style="--path-length: 15; --delay: 2.9s; stroke-width: 2;"/>
 
             <g>
-                <rect x="15" y="55" width="10" height="10" class="house-path" style="--path-length: 40; --delay: 3.0s; stroke-width: 2;"/>
-                <line x1="20" y1="55" x2="20" y2="65" class="house-path" style="--path-length: 10; --delay: 3.1s;"/>
-                <line x1="15" y1="60" x2="25" y2="60" class="house-path" style="--path-length: 10; --delay: 3.2s;"/>
+                <rect x="42" y="30" width="16" height="16" class="house-path" style="--path-length: 64; --delay: 3.1s; stroke-width: 2;"/>
+                <line x1="50" y1="30" x2="50" y2="46" class="house-path" style="--path-length: 16; --delay: 3.2s;"/>
+                <line x1="42" y1="38" x2="58" y2="38" class="house-path" style="--path-length: 16; --delay: 3.3s;"/>
                 
-                <rect x="65" y="55" width="10" height="10" class="house-path" style="--path-length: 40; --delay: 3.3s; stroke-width: 2;"/>
-                <line x1="70" y1="55" x2="70" y2="65" class="house-path" style="--path-length: 10; --delay: 3.4s;"/>
-                <line x1="65" y1="60" x2="75" y2="60" class="house-path" style="--path-length: 10; --delay: 3.5s;"/>
+                <rect x="15" y="60" width="14" height="14" class="house-path" style="--path-length: 56; --delay: 3.5s; stroke-width: 2;"/>
+                <line x1="22" y1="60" x2="22" y2="74" class="house-path" style="--path-length: 14; --delay: 3.6s;"/>
+                <line x1="15" y1="67" x2="29" y2="67" class="house-path" style="--path-length: 14; --delay: 3.7s;"/>
+
+                <rect x="71" y="60" width="14" height="14" class="house-path" style="--path-length: 56; --delay: 3.9s; stroke-width: 2;"/>
+                <line x1="78" y1="60" x2="78" y2="74" class="house-path" style="--path-length: 14; --delay: 4.0s;"/>
+                <line x1="71" y1="67" x2="85" y2="67" class="house-path" style="--path-length: 14; --delay: 4.1s;"/>
             </g>
             
-            <path d="M 65 30 L 65 10 L 75 10 L 75 45" class="house-path" style="--path-length: 100; --delay: 3.7s; stroke-width: 3;"/>
+            <path d="M 75 35 L 75 10 L 87 10 L 87 50" class="house-path" style="--path-length: 110; --delay: 4.3s; stroke-width: 3;"/>
+
+            <g>
+                <line x1="7" y1="100" x2="20" y2="100" class="house-path" style="--path-length: 13; --delay: 4.5s; stroke-width: 2;"/>
+                <line x1="7" y1="103" x2="20" y2="103" class="house-path" style="--path-length: 13; --delay: 4.6s; stroke-width: 2;"/>
+            </g>
         </g>
+
     </svg>
+
 </body>
 </html>
