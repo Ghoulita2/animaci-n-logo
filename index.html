@@ -1,11 +1,20 @@
-<!DOCTYPE html>
-<html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo Animado</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    </body>
-</html>
+<div class="logo-container">
+  <svg viewBox="0 0 200 100" class="animated-logo" width="400">
+    
+    <g class="house">
+      <path d="M 50 80 L 50 40 L 25 40 L 75 10 L 125 40 L 100 40 L 100 80 Z" 
+            fill="transparent" 
+            stroke="var(--accent-color)" 
+            stroke-width="3" 
+            class="house-path"/>
+    </g>
+
+    <g class="letters" fill="var(--text-color)" font-family="Arial, sans-serif" font-size="24" font-weight="bold">
+      <text x="135" y="60" class="letter" style="--delay: 1.0s">L</text>
+      <text x="150" y="60" class="letter" style="--delay: 1.2s">O</text>
+      <text x="170" y="60" class="letter" style="--delay: 1.4s">G</text>
+      <text x="190" y="60" class="letter" style="--delay: 1.6s">O</text>
+    </g>
+    
+  </svg>
+</div>
