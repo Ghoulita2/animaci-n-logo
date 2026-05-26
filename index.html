@@ -3,12 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Logo FABRI-K - Precisión Total</title>
+    <title>Animación FABRI-K Vectorial</title>
     <style>
-        /* Definición estricta de la paleta de colores */
         :root {
-            --bg-color: #ffffff; /* Fondo blanco */
-            --brand-color: #a0522d; /* El tono marrón de FABRI-K */
+            --bg-color: #ffffff; /* Fondo de la web */
         }
 
         body {
@@ -19,20 +17,14 @@
             height: 100vh;
             margin: 0;
             overflow: hidden;
-            font-family: sans-serif;
         }
 
-        /* 1. Animación de caída de las letras */
+        /* Animación de caída de las letras */
         .letter {
             opacity: 0;
             transform: translateY(-60px);
-            animation: dropLetter 0.5s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+            animation: dropLetter 0.6s cubic-bezier(0.25, 1, 0.5, 1) forwards;
             animation-delay: var(--delay);
-            /* Tipografía geométrica pesada aproximada */
-            font-family: 'Arial Black', 'Helvetica Bold', sans-serif;
-            font-weight: 900;
-            font-size: 85px;
-            text-transform: uppercase;
         }
 
         @keyframes dropLetter {
@@ -42,15 +34,13 @@
             }
         }
 
-        /* 2. Animación de dibujo de la cabaña (Líneas secuenciales) */
+        /* Animación de dibujo de la casa */
         .house-path {
-            stroke-dasharray: var(--path-length);
-            stroke-dashoffset: var(--path-length);
-            animation: buildHouse 1s ease-in-out forwards;
+            /* El valor 1500 cubre la longitud total de los trazados complejos */
+            stroke-dasharray: 1500;
+            stroke-dashoffset: 1500;
+            animation: buildHouse 2s ease-in-out forwards;
             animation-delay: var(--delay);
-            stroke-linecap: round;
-            stroke-linejoin: round;
-            stroke-width: 2; /* Ancho de línea base */
         }
 
         @keyframes buildHouse {
@@ -62,64 +52,42 @@
 </head>
 <body>
 
-    <svg viewBox="0 0 700 250" width="100%" max-width="800px">
+    <svg width="670" height="201" viewBox="0 0 670 201" fill="none" xmlns="http://www.w3.org/2000/svg" style="max-width: 100%; height: auto;">
         
-        <defs>
-            <clipPath id="texture-mask">
-                <path d="M 50 0 L 0 95 L 100 95 Z" />
-                
-                <rect x="37" y="60" width="26" height="35" fill="white" />
-                <rect x="42" y="30" width="16" height="16" fill="white" />
-                <rect x="15" y="60" width="14" height="14" fill="white" />
-                <rect x="71" y="60" width="14" height="14" fill="white" />
-            </clipPath>
-        </defs>
-
-        <g fill="var(--brand-color)">
-            <text x="35" y="170" class="letter" style="--delay: 0.0s">F</text>
-            <text x="260" y="170" class="letter" style="--delay: 0.4s">B</text>
-            <text x="340" y="170" class="letter" style="--delay: 0.6s">R</text>
-            <text x="410" y="170" class="letter" style="--delay: 0.8s">I</text>
-            <text x="450" y="170" class="letter" style="--delay: 1.0s">-</text>
-            <text x="500" y="170" class="letter" style="--delay: 1.2s">K</text>
+        <g class="letter" style="--delay: 0.1s">
+            <path d="M51.5 158V43H109.5V66.5H74.5V88.5H103.5V112H74.5V158H51.5Z" fill="#985121"/>
+            <path d="M51.5 158V43H109.5V66.5H74.5V88.5H103.5V112H74.5V158H51.5Z" stroke="white"/>
         </g>
-        
-        <g transform="translate(130, 75)" fill="transparent" stroke="var(--brand-color)">
-            
-            <path d="M 50 0 L 0 95 L 100 95 Z" class="house-path" style="--path-length: 340; --delay: 1.5s; stroke-width: 6;"/>
-            <rect x="0" y="95" width="100" height="7" class="house-path" style="--path-length: 220; --delay: 1.8s; stroke-width: 4; fill: var(--brand-color);"/>
 
-            <g clip-path="url(#texture-mask)">
-                <line x1="-10" y1="20" x2="110" y2="20" class="house-path" style="--path-length: 120; --delay: 2.1s; stroke-width: 2;"/>
-                <line x1="-10" y1="35" x2="110" y2="35" class="house-path" style="--path-length: 120; --delay: 2.2s; stroke-width: 2;"/>
-                <line x1="-10" y1="50" x2="110" y2="50" class="house-path" style="--path-length: 120; --delay: 2.3s; stroke-width: 2;"/>
-                <line x1="-10" y1="65" x2="110" y2="65" class="house-path" style="--path-length: 120; --delay: 2.4s; stroke-width: 2;"/>
-                <line x1="-10" y1="80" x2="110" y2="80" class="house-path" style="--path-length: 120; --delay: 2.5s; stroke-width: 2;"/>
-            </g>
-            
-            <path d="M 37 95 L 37 60 L 63 60 L 63 95" class="house-path" style="--path-length: 130; --delay: 2.7s; stroke-width: 3;"/>
-            <path d="M 48 80 L 52 80 L 50 76 Z" class="house-path" style="--path-length: 15; --delay: 2.9s; stroke-width: 2;"/>
+        <g fill="transparent" stroke="#985121" stroke-width="2">
+            <path class="house-path" style="--delay: 0.4s" d="M90 156H98L160.5 40L224 156H231L182 66.5V43H184V41H173V43H175V51H174L160.5 26L90 156Z"/>
+            <path class="house-path" style="--delay: 0.8s" fill-rule="evenodd" clip-rule="evenodd" d="M107.5 145L101.5 156H148V114H173V156H221L217.5 149.5H190.5L192.5 148H216.5L207 130.5H200.5L202 129H206L189 97.5H174.5L176 95.5H188L172.5 66.5H166L167.5 65H171.5L160.5 44.5L152.5 60H157L158.5 61.5H151.5L131.5 99.5H151L152.5 101H131L126 110H141.5L144 112H125L108.5 143H126L128 145H107.5ZM160.5 90H168V81.5V73H160.5H153V81.5V90H160.5ZM141 119H134H127V127V135H134H141V127V119ZM180 135H187H194V127V119H187H180V127V135Z"/>
+            <path class="house-path" style="--delay: 1.2s" d="M151 156V117H170V156H151Z"/>
+            <path class="house-path" style="--delay: 1.4s" d="M134 135H141V127M134 135H127V127M134 135V127M134 119H127V127M134 119H141V127M134 119V127M127 127H134M141 127H134M187 135H194V127M187 135H180V127M187 135V127M187 119H180V127M187 119H194V127M187 119V127M180 127H187M194 127H187M160.5 90H168V81.5M160.5 90H153V81.5M160.5 90V81.5M160.5 73H153V81.5M160.5 73H168V81.5M160.5 73V81.5M153 81.5H160.5M168 81.5H160.5M98 156H90L160.5 26L174 51H175V43H173V41H184V43H182V66.5L231 156H224L160.5 40L98 156ZM101.5 156L107.5 145H128L126 143H108.5L125 112H144L141.5 110H126L131 101H152.5L151 99.5H131.5L151.5 61.5H158.5L157 60H152.5L160.5 44.5L171.5 65H167.5L166 66.5H172.5L188 95.5H176L174.5 97.5H189L206 129H202L200.5 130.5H207L216.5 148H192.5L190.5 149.5H217.5L221 156H173V114H148V156H101.5ZM151 156V117H170V156H151Z"/>
+        </g>
+        <path class="letter" style="--delay: 1.6s" d="M167 138V133H165.8V134.429H164V135.857H165.8V138H167Z" fill="#985121"/>
 
-            <g>
-                <rect x="42" y="30" width="16" height="16" class="house-path" style="--path-length: 64; --delay: 3.1s; stroke-width: 2;"/>
-                <line x1="50" y1="30" x2="50" y2="46" class="house-path" style="--path-length: 16; --delay: 3.2s;"/>
-                <line x1="42" y1="38" x2="58" y2="38" class="house-path" style="--path-length: 16; --delay: 3.3s;"/>
-                
-                <rect x="15" y="60" width="14" height="14" class="house-path" style="--path-length: 56; --delay: 3.5s; stroke-width: 2;"/>
-                <line x1="22" y1="60" x2="22" y2="74" class="house-path" style="--path-length: 14; --delay: 3.6s;"/>
-                <line x1="15" y1="67" x2="29" y2="67" class="house-path" style="--path-length: 14; --delay: 3.7s;"/>
+        <g class="letter" style="--delay: 0.5s">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M241 156V43H294L298 44L303 46L307 49L310.5 52.5L312.5 55.5L315 60L317 64L318.5 69.5L319 74.5V79.5L318.5 86.5L316.5 91.5L313.5 95.5L310.5 98.5L309 100L312 103L315 107L317.5 111L319.5 115.5L320.5 121V125.5L319.5 131L318 137L315.5 142.5L312 147L306 152L301 155.5L293 158H241V156Z" fill="#985121"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M286.5 112C289.5 112.833 295.5 116.4 295.5 124C295.5 131.6 289.833 135.167 287 136H263V112H286.5Z" fill="white"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M287 66C289.5 67 294.5 70.6 294.5 77C294.5 83.4 289.5 87.6667 287 89H263V66L287 66Z" fill="white"/>
+        </g>
 
-                <rect x="71" y="60" width="14" height="14" class="house-path" style="--path-length: 56; --delay: 3.9s; stroke-width: 2;"/>
-                <line x1="78" y1="60" x2="78" y2="74" class="house-path" style="--path-length: 14; --delay: 4.0s;"/>
-                <line x1="71" y1="67" x2="85" y2="67" class="house-path" style="--path-length: 14; --delay: 4.1s;"/>
-            </g>
-            
-            <path d="M 75 35 L 75 10 L 87 10 L 87 50" class="house-path" style="--path-length: 110; --delay: 4.3s; stroke-width: 3;"/>
+        <g class="letter" style="--delay: 0.7s">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M335 158V43H389L395 45L400.5 48.5L405 52.5L409 57.5L412 64L414 69.5L414.5 75L414 82.5L412 91L408 99L403.5 103.5L398 107.5L392 111L418 158H393L370 114.5H358V158H335Z" fill="#985121"/>
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M381.5 65.5C384.5 67.1667 390.3 72.3 389.5 79.5C388.7 86.7 383.833 90.5 381.5 91.5H358V65.5H381.5Z" fill="white"/>
+        </g>
 
-            <g>
-                <line x1="7" y1="100" x2="20" y2="100" class="house-path" style="--path-length: 13; --delay: 4.5s; stroke-width: 2;"/>
-                <line x1="7" y1="103" x2="20" y2="103" class="house-path" style="--path-length: 13; --delay: 4.6s; stroke-width: 2;"/>
-            </g>
+        <g class="letter" style="--delay: 0.9s">
+            <path d="M427 158V43H450V158H427Z" fill="#985121"/>
+        </g>
+
+        <g class="letter" style="--delay: 1.1s">
+            <path d="M463 113V93H522V113H463Z" fill="#985121"/>
+        </g>
+
+        <g class="letter" style="--delay: 1.3s">
+            <path d="M560 158H537V43H560V88L589.5 43H616.5L579 99V101L618.5 158H590L561 114H560V158Z" fill="#985121"/>
         </g>
 
     </svg>
